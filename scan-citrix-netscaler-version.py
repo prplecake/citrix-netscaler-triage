@@ -307,7 +307,7 @@ def main() -> None:
     ctx.check_hostname = args.verify
     ctx.verify_mode = ssl.CERT_REQUIRED if args.verify else ssl.CERT_NONE
 
-    client = httpx.Client(verify=args.verify, timeout=args.timeout)
+    client = httpx.Client(verify=ctx, timeout=args.timeout)
     targets = args.input or args.targets
 
     for target in targets:
